@@ -14,3 +14,4 @@ download-only = true
 recipe = collective.recipe.supervisor
 programs =
     0 jenkins java [ -jar ${buildout:directory}/parts/jenkins/jenkins.war ] ${buildout:directory}
+
