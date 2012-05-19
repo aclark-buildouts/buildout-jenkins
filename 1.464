@@ -1,0 +1,14 @@
+[buildout]
+allow-hosts = *.python.org
+extensions = buildout.bootstrap
+parts = jenkins supervisor
+
+[jenkins]
+recipe = hexagonit.recipe.download
+url = http://mirrors.jenkins-ci.org/war/1.464/jenkins.war
+download-only = true
+
+[supervisor]
+recipe = collective.recipe.supervisor
+programs =
+    0 jenkins java [ -jar ${buildout:directory}/parts/jenkins/jenkins.war ] ${buildout:directory}
